@@ -1,0 +1,48 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* Basic Reset: Apply these declarations to all elements */
+/* Start clean */
+* {
+    margin: 0;
+    padding: 0;
+    /* borders are no longer added to the total width or height */
+    box-sizing: border-box;
+}
+
+/* Everything related to font should be specified in the body */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7; /* 1.7x{predefined height} */
+    color: #777;
+    padding:  30px;
+}
+
+.header {
+    height: 95vh; /* 95% of the viewport height (user's visible area of a web page) */
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(126, 213, 111, 0.8), 
+        rgba(40, 180, 131, 0.8)), 
+    url(../img/hero.jpg) /* <-below */;
+    background-size: cover; /* scales without stretching */
+    background-position: top; /* on resize -- bottom gets cropped but not the top */
+    
+    /* Create a 'slope' (crop out a triangle)
+    (1)----(2)
+     |      |
+     |     (3) 
+    (4)_---''
+
+    Cool path editor: https://bennettfeely.com/clippy/
+    */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%) /* x & y pairs*/
+}
