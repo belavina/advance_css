@@ -139,6 +139,20 @@ body {
     }
 }
 
+@keyframes moveInButton {
+    /* start */
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    /* finish */
+    100% {
+        opacity: 1;
+        transform: : translate(0) /* looks the way element CSS prop */
+    }
+}
+
 /* link -> special state of the selector (visited should be the same as link) */
 .btn:link,
 .btn:visited {
@@ -149,6 +163,7 @@ body {
     border-radius: 100px;
     /* can be a transition on all the properties  (.2s for hover, active etc.)*/
     transition: all .2s;
+    position: relative;
 }
 
 .btn:hover {
@@ -164,4 +179,33 @@ body {
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+
+/* pseudo element that looks exactly like btn  */
+.btn::after {
+    content: ""; /* & display - otherwise it won't appear */
+    display: inline-block; 
+    height: 100%; /* of the height of the .btn */
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInButton .5s ease-out .75s /* <- animation-delay*/;
+    animation-fill-mode: backwards; /* <- automatically apply 0% status before animation starts */
 }
