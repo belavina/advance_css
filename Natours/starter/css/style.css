@@ -64,7 +64,8 @@ body {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%) /* by ~half this element dimensions */
+    transform: translate(-50%, -50%); /* by ~half this element dimensions */
+    text-align: center;
 }
 
 .heading-primary {
@@ -73,6 +74,7 @@ body {
 
     /* fix shaky animation: */
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -94,7 +96,7 @@ body {
     font-weight: 700;
     letter-spacing: 17.4px;
 
-    animation-name: moveInRight 1s e ase-out;
+    animation: moveInRight 5s ease-out;
 }
 
 /* H1 animation */
@@ -135,4 +137,31 @@ body {
         opacity: 1;
         transform: : translate(0) /* looks the way element CSS prop */
     }
+}
+
+/* link -> special state of the selector (visited should be the same as link) */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding:  15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    /* can be a transition on all the properties  (.2s for hover, active etc.)*/
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2); /* x y blur color */
+}
+
+.btn:active /*<-when we click*/ {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2); /* x y blur color */
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
 }
