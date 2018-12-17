@@ -9,14 +9,16 @@ Dark green: #28b485
 
 /* Basic Reset: Apply these declarations to all elements */
 /* Start clean */
-* {
+*,
+*::after, /* include pseudo elements */
+*::before {
     margin: 0;
     padding: 0;
-    /* borders are no longer added to the total width or height */
-    box-sizing: border-box;
+    box-sizing: inherit; /* inherit from body */
 }
 
 html {
+    /* base font size: */
     font-size: 62.5%;   /* ~10px, since 100% -> 16 px */
     /*font-size: 10px;  1rem -> 10 px */
 }
@@ -29,6 +31,8 @@ body {
     line-height: 1.7; /* 1.7x{predefined height} */
     color: #777;
     padding:  3rem;
+    /* borders are no longer added to the total width or height */
+    box-sizing: border-box;
 }
 
 /* --- Header --- */
