@@ -1,0 +1,9 @@
+@mixin clearfix {
+    
+    // fix float collapsing 
+    &::after {
+        content: "";
+        display: table;
+        clear: both; // clear both float left & right
+    }
+}
