@@ -1,7 +1,6 @@
 .row {
     // 1140px is the standard
     max-width: $grid-width;
-    background-color: #eee;
 
     // always center row in the viewport
     // center block element inside another block element
@@ -17,7 +16,6 @@
 
     // attribute selector - class starting with 'col-'
     [class^="col-"] {
-        background-color: orangered;
         float: left; // always float to the left
 
         &:not(:last-child) {
