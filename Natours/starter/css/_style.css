@@ -173,7 +173,7 @@ body {
     /* can be a transition on all the properties  (.2s for hover, active etc.)*/
     transition: all .2s;
     position: relative;
-    font-size: 1.6rem;
+    font-size: $default-font-size;
 }
 
 .btn:hover {
