@@ -19,6 +19,7 @@
 
     Cool path editor: https://bennettfeely.com/clippy/
     */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* x & y pairs*/
 
     &__logo-box {
