@@ -1,0 +1,10 @@
+.popup {
+    padding: 15rem 0;
+
+    // background-color: orangered;//$color-white;
+
+    &__content {
+        background-color: orangered;
+        width: 90%;
+    }
+}
