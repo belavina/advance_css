@@ -25,16 +25,24 @@
         width: 15rem;
         height: 15rem;
         float: left;
-        // circle(50%) -> half the height & width of the element, at 50% 50% -> center of the circle
-        // note that element has to have width & height as well as be floated
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%);
 
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
         // move away from the text (to add padding between 2 elements)
         transform: translateX(-3rem) skewX(12deg);
         position: relative;
+        // cut down parts of the image that overflow beyond the element dimensions
+        overflow: hidden;
+        border-radius: 50%;
+
+        // show text wrapped around image
+        @supports (clip-path: polygon(0, 0)) or (-webkit-clip-path: polygon(0, 0)) {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            // circle(50%) -> half the height & width of the element, at 50% 50% -> center of the circle
+            // note that element has to have width & height as well as be floated
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+            border-radius: none;
+        }
 
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0deg);

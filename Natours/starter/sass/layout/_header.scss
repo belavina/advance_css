@@ -1,12 +1,12 @@
 /* --- Header --- */
 
 .header {
-    height: 95vh; /* 95% of the viewport height (user's visible area of a web page) */
+    height: 85vh;
     background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.8), 
         rgba($color-primary-dark, 0.8)), 
-    url(../img/hero.jpg) /* <-below */;
+    url(../img/hero-small.jpg) /* <-below */;
     background-size: cover; /* scales without stretching */
     background-position: top; /* on resize -- bottom gets cropped but not the top */
     position: relative;
@@ -21,6 +21,23 @@
     */
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* x & y pairs*/
+
+    @supports (clip-path: polygon(0, 0)) or (-webkit-clip-path: polygon(0, 0)) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* x & y pairs*/
+        height: 95vh; /* 95% of the viewport height (user's visible area of a web page) */
+    }
+
+    @media only screen and (min-resolution: 192dpi) /* dots per inch */ and (min-width: 37.5em /*600px*/),
+           only screen and  (-webkit-min-device-pixel-ration: 2) and (min-width: 37.5em),
+           only screen and  (min-width: 125em /* 2000px */ ) { 
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.8), 
+            rgba($color-primary-dark, 0.8)), 
+        url(../img/hero.jpg) /* <-below */;
+    }
+
 
     @include respond(phone) {
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
