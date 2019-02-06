@@ -16,6 +16,12 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $pb-smallest) {
+        order: 1;
+        flex: 0 0 100%; // width to 100%
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         font-family: inherit;
         font-size: inherit;
@@ -186,12 +192,19 @@
         position: relative;
 
         display: flex;
-        align-content: center;
+        align-items: center;
 
         @media only screen and (max-width: $pb-medium) {
             justify-content: center;
             padding: 2rem;
         }
+
+
+        @media only screen and (max-width: $pb-small) {
+            flex-direction: column;
+            padding: 1.5rem;
+        }
+        
     }
 
     &__icon {
@@ -201,6 +214,14 @@
         
         // color of the current/parent element
         fill: currentColor;
+
+
+        @media only screen and (max-width: $pb-small) {
+            margin-right: 0;
+            margin-bottom: .7rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
 }
 
@@ -248,6 +269,12 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+
+        @media only screen and (max-width: $pb-small) {
+           font-size: 1.8rem;
+           padding: 1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -289,17 +316,29 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width: $pb-small) {
+            padding: 0 1.25rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+
+        @media only screen and (max-width: $pb-small) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $pb-small) {
+            font-size: .5rem;
+        }
     }
 }
 
@@ -393,14 +432,19 @@
         // Older browsers
         // background-image: url(../img/chevron-thin-right.svg);
         // background-size: cover;
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
 
         // Newer browsers -- masks
-        background-color: var(--color-primary);
+        @supports(-webkit-mask-image: url()) or (mask-image: url()) {
+            background-color: var(--color-primary);
 
-        -webkit-mask-image: url(../img/chevron-thin-right.svg);
-        -webkit-mask-size: cover;
-        mask-image: url(../img/chevron-thin-right.svg);
-        mask-size: cover;
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+            background-image: none;
+        }
         
     }
 }
@@ -422,7 +466,7 @@
     }
 
     &__friends {
-
+        display: flex;
     }
 
     &__photo {
@@ -447,6 +491,11 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width: $pb-medium) {
+        padding: 2rem;
+        margin-bottom: 3rem;
+    }
 
     &__text {
         margin-bottom: 2rem;
@@ -507,6 +556,13 @@
 .cta {
     padding: 3.5rem 0;
     text-align: center;
+    background-color: #fff;
+    width: 100%;
+    margin-top: 5rem;
+
+    @media only screen and (max-width: $pb-medium) {
+        padding: 2.5rem 0;
+    }
 
     &__book-now {
         text-transform: uppercase;
